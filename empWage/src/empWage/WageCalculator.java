@@ -16,13 +16,13 @@ public class WageCalculator {
 			System.out.println("Employee absent");
 		
     }
-    public static void calcDailyWage() {
+    public static int calcDailyWage() {
     	int dailyWage = wagePerHr*hrPerDay;
-    	System.out.println("Daily wage of full time employee is "+dailyWage);
+    	return dailyWage;
     }
-    public static void partTimeEmp(){
+    public static int partTimeEmp(){
     	int partDailyWage=wagePerHr*partTimeHr;
-    	System.out.println("Daitly Wage of part time employee is "+partDailyWage);
+    	return partDailyWage;
     }
     public static int calcFullMonthlyWage() {
     	int wage=daysPerMonth*hrPerDay*wagePerHr;
@@ -53,11 +53,38 @@ public class WageCalculator {
     	}
     	
     }
+    public static void loop() {
+    	int counthrs=0;
+    	int countdays=0;
+    	int monthWage=0;
+    	while(counthrs<100 && countdays<20) {
+    		int exp;
+        	Random random=new Random();
+        	exp=1+random.nextInt(2);
+        	switch(exp) {
+        	case 1:
+        		monthWage=calcDailyWage()+monthWage;
+        		counthrs=counthrs+8;
+        		countdays++;
+        		break;
+        	case 2:
+        		monthWage=partTimeEmp()+monthWage;
+        		counthrs=counthrs+8;
+        		countdays++;
+        		break;
+        	default:
+        		System.out.println("Invalid");
+        	}
+    	}
+    	System.out.println("Total monthly wage is "+monthWage);
+    }
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Calculator");
 		attendence();
 		calcDailyWage();
 		partTimeEmp();
 		Switch();
+		loop();
+		
 	}
 }
