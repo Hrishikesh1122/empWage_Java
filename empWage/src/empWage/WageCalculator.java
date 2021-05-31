@@ -14,10 +14,16 @@ public class WageCalculator {
 			System.out.println("Employee absent");
 		
     }
+    public static void calcDailyWage() {
+    	int wagePerHr=20;
+    	int hrPerDay=8;
+    	int dailyWage = wagePerHr*hrPerDay;
+    	System.out.println(dailyWage);
+    }
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Calculator");
-		//Random random=new Random();
-		attendence();	
+		attendence();
+		calcDailyWage();
 		
 	}
 }
