@@ -4,6 +4,7 @@ public class WageCalculator {
 	static int wagePerHr=20;
 	static int hrPerDay=8;
 	static int partTimeHr=4;
+	static int daysPerMonth=20;
     public static void attendence() {
     	int ran;
     	int isPresent=1;
@@ -23,6 +24,15 @@ public class WageCalculator {
     	int partDailyWage=wagePerHr*partTimeHr;
     	System.out.println("Daitly Wage of part time employee is "+partDailyWage);
     }
+    public static int calcFullMonthlyWage() {
+    	int wage=daysPerMonth*hrPerDay*wagePerHr;
+    	return wage;
+    }
+    public static int calcPartMonthlyWage() {
+    	int wage=daysPerMonth*partTimeHr*wagePerHr;
+    	return wage;
+    }
+    
     public static void Switch() {
     	int exp;
     	Random random=new Random();
@@ -31,10 +41,12 @@ public class WageCalculator {
     	case 1:
     		System.out.println("Employee is fulltime");
     		calcDailyWage();
+    		System.out.println("Fulltime monthly wage is "+calcFullMonthlyWage() );
     		break;
     	case 2:
     		System.out.println("Employee is parttime");
     		partTimeEmp();
+    		System.out.println("Fulltime monthly wage is "+calcPartMonthlyWage() );
     		break;
     	default:
     		System.out.println("Invalid");
