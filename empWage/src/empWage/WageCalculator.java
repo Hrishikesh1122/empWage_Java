@@ -33,7 +33,7 @@ public class WageCalculator {
     	return wage;
     }
     
-    public static void Switch() {
+    public static void calcDailyWageEmployees() {
     	int exp;
     	Random random=new Random();
     	exp=1+random.nextInt(2);
@@ -83,7 +83,7 @@ public class WageCalculator {
 		attendence();
 		calcDailyWage();
 		partTimeEmp();
-		Switch();
+		calcDailyWageEmployees();
 		loop();
 		
 	}
